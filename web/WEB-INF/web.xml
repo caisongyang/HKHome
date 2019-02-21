@@ -34,4 +34,9 @@
         <!-- 此处可以可以配置成*.do，对应struts的后缀习惯 -->
         <url-pattern>*.html</url-pattern>
     </servlet-mapping>
+
+    <!-- 欢迎页面-->
+    <welcome-file-list>
+        <welcome-file>/html/login.html</welcome-file>
+    </welcome-file-list>
 </web-app>
