@@ -377,3 +377,13 @@ body
     text-decoration: none;
     z-index: 125;
 }
+#volumeVal{
+    color: #bdbdbd;
+    float:right;
+    padding: 15px 88px 10px 10px;
+}
+
+#musicVolume{
+    width: 100px;
+    padding: 10px 5px 10px 10px;
+}

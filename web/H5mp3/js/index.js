@@ -18,6 +18,7 @@ $(function () {
                 albumArt.addClass('active');
                 checkBuffering();
                 i.attr('class', 'fas fa-pause');
+                console.log(audio.volume);
                 audio.play();
                 $("#player-track").show();
             }
@@ -201,8 +202,9 @@ $(function () {
     }
 
     function initPlayer() {
-        audio = new Audio();
-
+        console.log(audio.volume);
+        audio.volume = 0.1;
+        console.log(audio.volume);
         selectTrack(0);
 
         audio.loop = false;
@@ -225,6 +227,12 @@ $(function () {
         playNextTrackButton.on('click', function () {
             selectTrack(1);
         });
+    }
+    audio = new Audio();
+    rangechange = function() {
+        /*console.log($("#musicVolume").val());*/
+        $("#volumeVal").text(Math.floor($("#musicVolume").val()*100));
+        audio.volume = $("#musicVolume").val();
     }
 
     initPlayer();
