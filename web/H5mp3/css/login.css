@@ -1,7 +1,28 @@
 #h5mp3{
-    float: left;
-    border-radius:20px;
+    width:440px;
+    height:220px;
 }
 .h5mp3{
-    position:absolute;
+    border-radius:80px;
+    width:200px;
+    height:160px;
+    overflow : hidden;
+    position:fixed;
+    bottom:15px;
+    margin-left: -90px;
+
 }
+
+.h5mp3{
+    -webkit-transition:width 3s,height 3s,margin-left 3s;
+    overflow-x : hidden;
+    overflow-y : hidden;
+}
+
+.h5mp3:hover{
+    width:440px;
+    height:200px;
+    border-radius:20px;
+    margin-left: 10px;
+}
+
