@@ -17,5 +17,13 @@
 		<!-- 此变量值为pageContext.request, 页面使用方法：rc.contextPath -->
 		<property name="requestContextAttribute" value="rc" />
 	</bean>
+	<context:component-scan base-package="MusicPlayer" use-default-filters="false">
+		<context:include-filter type="annotation" expression="org.springframework.stereotype.Component"/>
+		<context:include-filter type="annotation" expression="org.springframework.web.bind.annotation.RestController"/>
+		<context:include-filter type="annotation" expression="org.springframework.stereotype.Controller"/>
+		<context:include-filter type="annotation" expression="org.springframework.web.bind.annotation.ControllerAdvice"/>
+	</context:component-scan>
+	<mvc:annotation-driven />
+	<mvc:default-servlet-handler/>
 
 </beans>
