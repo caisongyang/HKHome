@@ -26,4 +26,9 @@
 	<mvc:annotation-driven />
 	<mvc:default-servlet-handler/>
 
+	<bean id="configProperties" class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+		<property name="location">
+			<value>classpath:application-localhost.properties</value>
+		</property>
+	</bean>
 </beans>
