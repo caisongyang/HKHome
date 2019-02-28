@@ -1,0 +1,67 @@
+#h5mp3{
+    width:440px;
+    height:220px;
+}
+.h5mp3{
+    border-radius:80px;
+    width:200px;
+    height:160px;
+    overflow : hidden;
+    position:fixed;
+    bottom:15px;
+    margin-left: -90px;
+
+}
+
+.h5mp3{
+    -webkit-transition:width 3s,height 3s,margin-left 3s;
+    overflow-x : hidden;
+    overflow-y : hidden;
+}
+
+.h5mp3:hover{
+    width:440px;
+    height:200px;
+    border-radius:20px;
+    margin-left: 10px;
+}
+
+.addMusicClass{
+    width:500px;
+    margin-left: 6px;
+}
+
+.addBottonClass{
+    width: 8%;
+    margin-left: 5%;
+    cursor: pointer;
+}
+
+.info-input input {
+    border: none;
+    height: 96%;
+    width: 94%;
+    outline: none;
+    border-radius: 4px;
+    position: relative;
+    z-index: 10;
+    background: transparent;
+    cursor: pointer;
+}
+
+.project-info .info-input {
+    height: 40px;
+    line-height: 40px;
+    border-radius: 4px;
+    text-align: center;
+    border: 1px solid #CCC;
+}
+
+.project-info-list .project-info {
+    float: left;
+    margin: 5px 15px 5px 20px;
+}
+
+.uploadFile{
+    width: 96%;
+}
