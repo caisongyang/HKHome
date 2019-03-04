@@ -43,9 +43,16 @@ $(function(){
                       if (loadding) {
                           return;
                       }
+                     var upfrom = new FormData($("#addMusicForm")[0]);
+                      console.log(upfrom);
                     $.ajax({
                         url:"/HKHome/upload/upMusic",
-                        data: $("#editFrm").serialize(),
+                        dataType: "json",
+                        type: 'POST',
+                        data: upfrom,
+                        cache: false,
+                        contentType: false,
+                        processData: false,
                         beforeSend: function (data) {
                             loadding = true;
                         },

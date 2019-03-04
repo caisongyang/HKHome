@@ -27,7 +27,8 @@ public class loginController {
   public Map<String, Object> queryMusicList(HttpServletRequest request, HttpServletResponse response){
         Map<String, Object> result = new HashMap<String, Object>();
      try {
-        List<Map<String,Object>> musiclist = mscserivce.queryMusicList();
+        List<Map<String,Object>> musiclist = new ArrayList<Map<String,Object>>();
+         musiclist  =  mscserivce.queryMusicList();
         result.put("MusicList", musiclist);
         System.out.println("queryMusicList-End");
       }catch (Exception e){

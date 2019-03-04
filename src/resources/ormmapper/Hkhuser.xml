@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "mybatis_mapper" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="MusicPlayer.mscDao.HkhMusicDao">
-   <select id="queryMusicList" resultType="list">
+   <select id="queryMusicList" resultType="java.util.Map">
        select music_id,music_name,singer_id,singer_name,music_mp3 from hkh_music
    </select>
 
