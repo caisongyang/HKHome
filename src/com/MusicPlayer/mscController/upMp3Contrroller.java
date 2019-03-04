@@ -27,18 +27,27 @@ public class upMp3Contrroller {
     public Map<String,Object> uploadMp3(HttpServletRequest request, HttpServletResponse response,String MusicN,String singerName,MultipartFile file){
         Map<String, Object> result = new HashMap<String, Object>();
         String meesage = "";//报错信息
-        System.out.println(file);
         try {
+        //System.out.println(file);
+
             if (file == null || file.getOriginalFilename() == null || "".equals(file.getOriginalFilename())) {
+                meesage = "请选择文件";
+                result.put("message",meesage);
                 return result;
             }
             System.out.println("MusicN="+MusicN+"||singerName="+singerName);
-            List<Map<String,Object>> valmap = new ArrayList<Map<String,Object>>();
+            Map<String,Object> valmap = new HashMap<String, Object>();
+            /*List<Map<String,Object>> valmap = new ArrayList<Map<String,Object>>();
             valmap.add((Map)(new HashMap<String,Object>()).put("musicName",MusicN));
             valmap.add((Map)(new HashMap<String,Object>()).put("singerName",singerName));
-            valmap.add((Map)(new HashMap<String,Object>()).put("mp3file","123"));
+            valmap.add((Map)(new HashMap<String,Object>()).put("mp3file","123"));*/
+            valmap.put("musicName",MusicN);
+            valmap.put("singerName",singerName);
+            valmap.put("mp3file",file);
             if(file.getSize()>1024 * 1024 * 15){//不能大于15M
                 meesage = "上传文件不能大于15M";
+                result.put("message",meesage);
+                return  result;
             }
             meesage =  mscUpfileSerivce.uploadMusicFile(valmap);
             result.put("message",meesage);
