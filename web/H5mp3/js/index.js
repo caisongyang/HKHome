@@ -202,9 +202,7 @@ $(function () {
     }
 
     function initPlayer() {
-        console.log(audio.volume);
         audio.volume = 0.1;
-        console.log(audio.volume);
         selectTrack(0);
 
         audio.loop = false;

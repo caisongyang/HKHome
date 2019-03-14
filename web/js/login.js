@@ -1,11 +1,12 @@
 $(function(){
-  console.log("queryList");
   $.ajax({
     type:"POST",
     url:"/HKHome/login/queryMusicList",
-    success:function (data) {
+      success:function (data) {
+        console.log(StatusCode);
         if (data.statusCode=="200") {
-
+            console.log(123);
+            console.log(data.MusicList);
         }
     }, error:function(error){
           alert("后台异常")
@@ -15,7 +16,7 @@ $(function(){
   $.loginjs = {
       "addMusic" : function () {
           var num = 0;
-          layer.open({
+          var malayer = layer.open({
               type:1,
               title: '添加Music',
               maxmin:true,
@@ -44,7 +45,6 @@ $(function(){
                           return;
                       }
                      var upfrom = new FormData($("#addMusicForm")[0]);
-                      console.log(upfrom);
                     $.ajax({
                         url:"/HKHome/upload/upMusic",
                         dataType: "json",
@@ -57,14 +57,17 @@ $(function(){
                             loadding = true;
                         },
                         success: function (data) {
+                            console.log(data.statusCode);
                             if (data.statusCode == '200' || data.statusCode == 200) {
                                 layer.alert(data.message, {
                                     title: '提示框'
                                 });
+                                layer.close(malayer);
                             } else {
                                 layer.alert(data.message, {
                                     title: '提示框'
                                 });
+                                layer.close(malayer);
                             }
                             loadding = false;
                         }, error: function (data) {
@@ -72,6 +75,7 @@ $(function(){
                             layer.alert('系统异常，请联系管理员', {
                                 title: '提示框'
                             });
+                            layer.close(malayer);
                         }
                     })
                   }
@@ -82,12 +86,12 @@ $(function(){
       "checkFile":function () {
           $("#mscmp3file").click();
       },
-
       "setFile":function () {
           var val = $("#mscmp3file").val();
           val = val.substr(val.lastIndexOf("\\") + 1, val.length);
           $("#dlscFileInput").val(val);
-      }
+      },
   }
+
 
 });

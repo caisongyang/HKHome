@@ -29,7 +29,7 @@ public class loginController {
      try {
         List<Map<String,Object>> musiclist = new ArrayList<Map<String,Object>>();
          musiclist  =  mscserivce.queryMusicList();
-        result.put("MusicList", musiclist);
+         result.put("MusicList", musiclist);
         System.out.println("queryMusicList-End");
       }catch (Exception e){
             e.printStackTrace();

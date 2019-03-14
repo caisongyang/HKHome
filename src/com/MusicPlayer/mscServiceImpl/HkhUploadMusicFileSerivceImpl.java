@@ -22,12 +22,17 @@ public class HkhUploadMusicFileSerivceImpl implements HkhUploadMusicFileSerivce 
         String message = "";
         System.out.println(map);
         MultipartFile mscfile =  (MultipartFile) map.get("mp3file");
-        File mfile = new File("");
-        byte [] datas = new byte[0];//获取文件中的数据
+        /*  File mfile = new File("");
+        byte [] datas = new byte[0];//获取文件中的数据*/
         try {
-            datas = mscfile.getBytes();
+            //拼接路径
+            String path = "D:\\WORK\\UPLOAD-MUSIC\\"+mscfile.getOriginalFilename();
+            // 把文件上传至path的路径
+            File localFile = new File(path);
+            mscfile.transferTo(localFile);
+            //datas = mscfile.getBytes();
             //Blob blob = new Blob(datas);//创建Blob对象
-            map.put("mp3file",datas);
+            map.put("mp3file",path);
             upfileDao.addMusicFile(map);
             message = "上传成功";
        }catch (IOException e) {
@@ -38,4 +43,5 @@ public class HkhUploadMusicFileSerivceImpl implements HkhUploadMusicFileSerivce 
        }
         return message;
     }
+
 }

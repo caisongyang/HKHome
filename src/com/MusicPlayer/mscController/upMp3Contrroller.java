@@ -1,5 +1,6 @@
 package MusicPlayer.mscController;
 
+import MusicPlayer.mscService.HkhMusicSerivce;
 import MusicPlayer.mscService.HkhUploadMusicFileSerivce;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -21,6 +22,9 @@ public class upMp3Contrroller {
 
     @Autowired
     private HkhUploadMusicFileSerivce mscUpfileSerivce;
+
+    @Autowired
+    private HkhMusicSerivce mscQuerySerivce;
 
     @ResponseBody
     @RequestMapping("/upMusic")
