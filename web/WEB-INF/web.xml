@@ -38,4 +38,15 @@
     <welcome-file-list>
         <welcome-file>/html/login.html</welcome-file>
     </welcome-file-list>
+
+    <!-- 未登录过滤器-->
+    <filter>
+        <filter-name>LoginFilter</filter-name>
+        <filter-class>com.jdp.ai.common.filter.LoginFilter</filter-class>
+        <async-supported>true</async-supported>
+    </filter>
+    <filter-mapping>
+        <filter-name>LoginFilter</filter-name>
+        <url-pattern>/*</url-pattern>
+    </filter-mapping>
 </web-app>

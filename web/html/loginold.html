@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>heikingのHome</title>
+    <link rel='stylesheet' href='/HKHome/css/login.css'>
+</head>
+<body>
+<script type="text/javascript" src="/HKHome/js/jquery-1.11.1.min.js"></script>
+<script type="text/javascript" src="/HKHome/js/login.js"></script>
+<script type="text/javascript" src="/HKHome/js/layer/layer.js"></script>
+<script type="text/javascript" src="/HKHome/js/layer/extend/layer.ext.js"></script>
+
+<div>欢迎</div>
+<div class="addMusicClass">
+    <div class="addBottonClass"><button type="button" id="addButton" onclick="$.loginjs.addMusic();"><font size="3px">Add</font></button></div>
+    <!-- DEM Add -->
+    <!-- 添加Music -->
+    <div id="add_Music_style" style="display: none" class="layui-layer-wrap">
+        <form name="addMusicForm" id="addMusicForm" method="post">
+
+            <div class="alert-layer" id="add_Music">
+                <!-- <div class="alert-header">添加项目</div> -->
+
+                <div class="Music-box">
+
+                    <div class="project-info-list">
+                        <div class="project-info">
+                            <div class="tips">
+                                <span>歌曲名称</span>
+                            </div>
+                            <div class="info-input"><input type="text" name="MusicN" id="mscName" maxlength="20"
+                                                           onkeyup="this.value=this.value.replace(/^ +| +$/g,'')"
+                                                           onkeydown="this.value=this.value.replace(/^ +| +$/g,'')"/><input
+                                    type="hidden" name="mscid" id="hiddenMscId"/></div>
+                        </div>
+
+                        <div class="project-info">
+                            <div class="tips">
+                                <span>歌手名称</span>
+                            </div>
+                            <div class="info-input"><input type="text" name="singerName" maxlength="15" id="mscsingerName"
+                                                           onkeyup="this.value=this.value.replace(/^ +| +$/g,'')"
+                                                           onkeydown="this.value=this.value.replace(/^ +| +$/g,'')"/>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div class="project-info-list">
+                        <div class="project-info" style="width:390px">
+                            <div class="tips">
+                                <span>歌曲mp3</span>
+                            </div>
+                            <div class="info-input">
+                             <input type="text" name="fileName" id="dlscFileInput" class="my-input" onclick="$.loginjs.checkFile()" style="width: 95%">
+                             <input type="file" id="mscmp3file" name="file" class="my-input" style="width: 80%;display: none" onchange="$.loginjs.setFile()">
+                            </div>
+                        </div>
+
+
+                    </div>
+                </div>
+            </div>
+
+        </form>
+    </div>
+</div>
+<div id="musicTableDIv">
+    <table id="musicList">
+        <tr id="tableHead">
+            <th>1</th>
+            <th id="musicName">MusicName</th>
+            <th id="singerName">singerName</th>
+        </tr>
+    </table>
+</div>
+<div style="height: 2000px">
+<div class="h5mp3" ><iframe id="h5mp3" src="/HKHome/H5mp3/index.html"  frameborder="0" scrolling="no"></iframe></div>
+</div>
+</body>
+</html>
