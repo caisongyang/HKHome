@@ -42,7 +42,7 @@
     <!-- 未登录过滤器-->
     <filter>
         <filter-name>LoginFilter</filter-name>
-        <filter-class>com.jdp.ai.common.filter.LoginFilter</filter-class>
+        <filter-class>common.filter.LoginFilter</filter-class>
         <async-supported>true</async-supported>
     </filter>
     <filter-mapping>
