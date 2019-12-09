@@ -17,7 +17,12 @@
 		<!-- 此变量值为pageContext.request, 页面使用方法：rc.contextPath -->
 		<property name="requestContextAttribute" value="rc" />
 	</bean>
-	<context:component-scan base-package="MusicPlayer" use-default-filters="false">
+	<!-- 配置freeMarker的模板路径 -->
+	<bean class="org.springframework.web.servlet.view.freemarker.FreeMarkerConfigurer">
+		<property name="templateLoaderPath" value="/html/" />
+		<property name="defaultEncoding" value="UTF-8" />
+	</bean>
+	<context:component-scan base-package="common" use-default-filters="false">
 		<context:include-filter type="annotation" expression="org.springframework.stereotype.Component"/>
 		<context:include-filter type="annotation" expression="org.springframework.web.bind.annotation.RestController"/>
 		<context:include-filter type="annotation" expression="org.springframework.stereotype.Controller"/>

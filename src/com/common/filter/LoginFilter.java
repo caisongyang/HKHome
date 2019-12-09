@@ -20,7 +20,7 @@ import java.util.logging.Logger;
  * @DATE 2018年8月27日 下午1:50:51
  */
 public class LoginFilter extends OncePerRequestFilter {
-    private String LOGIN_VIEW = "/html/login.html";
+    private String LOGIN_VIEW = "/userLogin/goLogin";
     static String suffix[] = { ".png", ".css", ".js",".gif" };
 
     @Override
@@ -29,16 +29,16 @@ public class LoginFilter extends OncePerRequestFilter {
 
         System.out.println("request getContextPath = "+request.getContextPath());
         System.out.println("request getRequestURI = "+request.getRequestURI());
-        if("/HKHome/html/login.html".equals(request.getRequestURI())){
-            filterChain.doFilter(request, response);
-        }else{
+        //if("/HKHome/html/login.html".equals(request.getRequestURI())){
+           // filterChain.doFilter(request, response);
+        //}else{
             if (request.getSession().getAttribute("CURRENT_USER")==null&&notFilter(request.getRequestURI())){
                 response.sendRedirect(request.getContextPath()+LOGIN_VIEW);
                 return;
             }else{
                 filterChain.doFilter(request, response);
             }
-        }
+   //     }
 
     }
 
