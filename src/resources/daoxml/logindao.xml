@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "mybatis_mapper" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="common.dao.loginDao">
+    <select id="checkpasword" parameterType="map" resultType="map">
+       select user_id,user_name,user_role from hkh_user where login_name = #{userName} and password = #{passWord}
+   </select>
+</mapper>
