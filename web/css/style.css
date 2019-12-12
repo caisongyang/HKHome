@@ -186,9 +186,14 @@ button:active {
 .connect a:hover { background-position: center bottom; }
 
 /*－－－增加部份的CSS－－－*/
-form,input,button{font-family:Microsoft YaHei,Segoe UI,Tahoma,Arial,Verdana,sans-serif; text-decoration:none; width:100%;}
-button.submit_button{ font-size:24px; letter-spacing:15px;}
+form,input,button{font-family:Microsoft YaHei,Segoe UI,Tahoma,Arial,Verdana,sans-serif; text-decoration:none; width:90%;}
+button.submit_button{font-size: 20px;letter-spacing: 10px;width: 190.5px;height: 36px;margin: 10px 10px 5px 10px;}
 input.Captcha{ width:130px; float:left;}
+
+
+.errordiv{
+    margin: 15px 10px -5px 10px;
+}
 
 
 

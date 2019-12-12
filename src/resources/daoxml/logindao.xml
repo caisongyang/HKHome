@@ -4,4 +4,7 @@
     <select id="checkpasword" parameterType="map" resultType="map">
        select user_id,user_name,user_role from hkh_user where login_name = #{userName} and password = #{passWord}
    </select>
+    <select id="checkuserName" parameterType="map" resultType="string">
+       select count(*) from hkh_user where login_name = #{userName}
+   </select>
 </mapper>
