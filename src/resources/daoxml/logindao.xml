@@ -7,4 +7,8 @@
     <select id="checkuserName" parameterType="map" resultType="string">
        select count(*) from hkh_user where login_name = #{userName}
    </select>
+
+    <insert id="newLoginUser" parameterType="map">
+        insert into hkh_user (user_name,user_role,login_name,password) values (#{userName},2,#{userName},#{passWord})
+    </insert>
 </mapper>

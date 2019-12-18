@@ -3,8 +3,8 @@ $(function(){
  $.dologinJs = {
      "dologin":function () {
          var param = {
-             "userName": $("input[name=username]").val(),
-             "passWord": $("input[name=password]").val()
+             "userName": $("#loginform input[name=username]").val(),
+             "passWord": $("#loginform input[name=password]").val()
          };
          $.ajax({
              type: "POST",
@@ -16,7 +16,8 @@ $(function(){
                  if (ret.statusCode==300){
                      $.dologinJs.adderror(ret.errorCode,ret.message);
                  } else if (ret.statusCode==200) {
-
+                     $(".errordiv").html();
+                     window.location.href =   "/HKHome/userLogin/loginAfter";
                  }
              },
              error: function (error) {
@@ -57,6 +58,30 @@ $(function(){
              //修改隐藏val
              $("#formtype").val("login");
          }
+     },
+
+     "donewuser":function () {
+         var param = {
+             "userName": $("#newuser input[name=username]").val(),
+             "passWord": $("#newuser input[name=password]").val()
+         };
+         $.ajax({
+             type: "POST",
+             url: "/HKHome/userLogin/newUser",
+             dataType: "json",
+             data: param,
+             success: function (ret) {
+                 console.log(ret);
+                 if (ret.statusCode==300){
+                     $.dologinJs.adderror(ret.errorCode,ret.message);
+                 } else if (ret.statusCode==200) {
+                     $(".errordiv").html();
+                     $.dologinJs.changeButton();
+                 }
+             },
+             error: function (error) {
+             }
+         })
      }
  }
 });

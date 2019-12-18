@@ -27,16 +27,25 @@ public class logincontroller {
 
     //跳转到登录页面
     @RequestMapping("goLogin")
-    private ModelAndView uploadTest(HttpServletRequest request) {
+    public ModelAndView tologin(HttpServletRequest request) {
         ModelAndView mv = new ModelAndView();
         mv.setViewName("/login");
         return mv;
     }
 
     //跳转到登录页面
+    @RequestMapping("loginAfter")
+    public ModelAndView loginafter(HttpServletRequest request) {
+        ModelAndView mv = new ModelAndView();
+        mv.setViewName("/usermain");
+        return mv;
+    }
+
+
+    //跳转到登录页面
     @RequestMapping("dologin")
     @ResponseBody
-    private Map<String,Object> dologin(HttpServletRequest request, HttpServletResponse response, String userName, String passWord) {
+    public Map<String,Object> dologin(HttpServletRequest request, HttpServletResponse response, String userName, String passWord) {
         Map<String,Object> ret = new HashMap<>();
         System.out.println("进入login"+userName+"||"+passWord);
         if(StringUtils.isEmpty(userName)||StringUtils.isEmpty(passWord)){
@@ -73,4 +82,42 @@ public class logincontroller {
         }
     }
 
+    //新增用户
+    @RequestMapping("newUser")
+    @ResponseBody
+    public Map<String,Object> newloginUser(HttpServletRequest request, HttpServletResponse response, String userName, String passWord) {
+        Map<String,Object> ret = new HashMap<>();
+        System.out.println("进入login"+userName+"||"+passWord);
+        if(StringUtils.isEmpty(userName)||StringUtils.isEmpty(passWord)){
+            ret.put("statusCode","300");
+            ret.put("message","请输入用户名或者密码");
+            ret.put("errorCode","textnull");
+            return ret;
+        }
+        try{
+            Map<String,Object> val = new HashMap<String,Object>();
+            val.put("userName",userName);
+            val.put("passWord",passWord);
+            Map<String,Object> selectval = loginservice.newloginUser(val);
+            if("true".equals(selectval.get("status"))){
+                ret.put("statusCode","200");
+                ret.put("message",selectval.get("message"));
+                ret.put("errorCode","");
+                return ret;
+            }else{
+                ret.put("statusCode","300");
+                ret.put("message",selectval.get("message"));
+                ret.put("errorCode",selectval.get("errorCode"));
+                return ret;
+            }
+        }catch (Exception e){
+            e.printStackTrace();
+            System.out.println("注册报错");
+            e.printStackTrace();
+            ret.put("statusCode","300");
+            ret.put("message","注册报错");
+            ret.put("errorCode","newUser-error");
+            return ret;
+        }
+    }
 }

@@ -36,7 +36,25 @@ public class loginserviceImpl implements loginservice {
                 ret.put("message","登录成功");
             }
         }
-        System.out.println("ret = "+ret);
+        //System.out.println("ret = "+ret);
+        return ret;
+    }
+
+    @Override
+    public Map<String, Object> newloginUser(Map<String, Object> map) throws Exception {
+        Map<String,Object> ret = new HashMap<>();
+        //先验证是否存在此账号
+        if("0".equals(loginDao.checkuserName(map))){
+            loginDao.newLoginUser(map);
+            ret.put("status","true");
+            ret.put("errorCode","");
+            ret.put("message","新用户注册成功");
+        }else{
+            //存在账号
+            ret.put("status","false");
+            ret.put("errorCode","repeatUserName");
+            ret.put("message","用户名存在");
+        }
         return ret;
     }
 }
