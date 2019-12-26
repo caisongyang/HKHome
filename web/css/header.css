@@ -1,9 +1,8 @@
 .htmlheader{
-    height: 200px;
+    height: 80px;
     width: 100%;
     background: #d2d2d2;
+    position:fixed;
+    top:0;
 }
 
-.htmlmusic{
-    width: 30%;
-}

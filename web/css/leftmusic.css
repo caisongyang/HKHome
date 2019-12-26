@@ -1,0 +1,20 @@
+.left-music{
+    position:fixed;
+    bottom:30%;
+    left:0;
+    width: 500px;
+
+}
+
+.music-div{
+    width: 400px;
+    height: 100px;
+    float:left;
+}
+.music-button{
+    width: 40px;
+    height: 61px;
+    float:left;
+    background: #000000;
+    margin: 5px 1px 1px 1px;
+}
