@@ -8,9 +8,38 @@
 
 .music-div{
     width: 400px;
-    height: 100px;
+    height: 66px;
     float:left;
+/*    margin: 0 0 0 -400px*/
 }
+
+.music-div-hide{
+    animation:musichide 2s;
+    animation-fill-mode: forwards;
+}
+
+.music-div-show{
+    animation:musicshow 2s;
+    animation-fill-mode: forwards;
+}
+
+@keyframes musichide
+{
+       0%   {margin: 0 0 0 0}
+ /*      25%  {margin: 0 0 0 -100px}
+       50%  {margin: 0 0 0 -200px}
+       75%  {margin: 0 0 0 -300px}*/
+       100% {margin: 0 0 0 -400px}
+
+}
+
+@keyframes musicshow
+{
+    0%   {margin: 0 0 0 -400px}
+    100%   {margin: 0 0 0 0}
+
+}
+
 .music-button{
     width: 40px;
     height: 61px;

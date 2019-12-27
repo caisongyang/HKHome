@@ -21,4 +21,18 @@ $(function(){
              ]
     });
 
+
+    $.MusicJs = {
+        "checkdiv":function () {
+            if ($("#divtype").val()=="show"){
+                ap.list.toggle();
+                $(".music-div").removeClass("music-div-show").addClass("music-div-hide");
+                $("#divtype").val("hidden");
+            } else{
+                $(".music-div").removeClass("music-div-hide").addClass("music-div-show");
+                $("#divtype").val("show");
+                ap.list.toggle();
+            }
+        }
+    }
 });
